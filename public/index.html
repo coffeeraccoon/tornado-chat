@@ -1,0 +1,87 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <script src="js/vendor/modernizr.js"></script>
+  </head>
+  <body>
+    
+    <div class="contain-to-grid">
+        <nav class="top-bar" data-topbar role="navigation" data-options="sticky_on: small">
+            <ul class="title-area">
+    		<li class="name">
+                    <h1><a href="/">Chat</a></h1>
+     	        </li>
+            </ul>
+	    <section class="top-bar-section">
+	    <ul class="right">
+                <li>
+		    <a>{{ username }}</a>
+	        </li>
+		<li>
+		    <a href="/logout">Logout</a>
+	        </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="row">
+    <div class="sidebar small-3 columns margin">
+	<fieldset>
+	<legend>Channels</legend>
+               <div class="row collapse small-10">
+		<div class="small-12 columns">
+		  <input type="text" value="" placeholder="Find channel" id="search-input">
+		</div>
+	       </div>
+	<div>
+	<ul class="side-nav chat" id="channels">
+        </ul>
+	<div class="row collapse small-10">
+	<div class="small-9 columns">
+		<input type="text" value="" placeholder="Add channel" id="add-channel-input">
+	</div>
+	<div class="small-3 columns">
+		<a class="button postfix" id="add-channel">+</a>
+	</div>
+	</div>
+	</div>
+	</fieldset>
+    </div>	
+    
+    <div class="small-9 columns margin">
+	<fieldset>
+	<legend id="chat-legend">Chat</legend>
+	<div class="chat">
+	<table id="chat-frame">
+		<tr>
+			<td>Please, select one of channels and let`s chat!</td>
+		</tr>
+	</table>
+	</div>
+	<div class="row collapse small-10">
+	<div class="small-11 columns">
+	  <input type="text" placeholder="Type your message here" id="text-message">
+	</div>
+	<div class="small-1 columns">
+	  <a class="button postfix" id="send-message">Send</a>
+	</div>
+       </div>
+	</fieldset>
+    </div>
+    </div>
+	
+	<input type="hidden" id="selected-channel" value="">	
+	<input type="hidden" id="user-id" value={{ id_user }}>
+
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+
+    <script src="js/app-scripts/chat.js"></script>
+  </body>
+</html>
