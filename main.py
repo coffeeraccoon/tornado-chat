@@ -179,7 +179,7 @@ app = Application()
 if __name__ == '__main__':
     tornado.options.parse_command_line() 
     
-    #http_server = tornado.httpserver.HTTPServer(app) 
-    app.listen(options.port)
+    http_server = tornado.httpserver.HTTPServer(app) 
+    http.listen(options.port)
     tornado.ioloop.IOLoop.instance().start()
 

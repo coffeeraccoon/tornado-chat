@@ -7,6 +7,8 @@ $( function(){
 	$("#add-channel").click(addChannel);
 });
 
+var is_empty = true;
+
 socket.onmessage = function(event){
 	var incomingMessage = event.data;
 	msg = JSON.parse(incomingMessage);
@@ -49,6 +51,11 @@ function getXmlHttp(){
 
 function addMessage(text)
 {
+	if(is_empty)
+	{ 
+		$("#chat-frame").empty();
+		is_empty = false;
+	}
 	$("#chat-frame").append("<tr><td>"+text+"</td></tr>");
 }
 
@@ -74,7 +81,7 @@ function selectChannel()
 	{
 		response = JSON.parse(xmlhttp.responseText);
 		messages = response.messages;
-		var is_empty = true;
+		is_empty = true;
 		for(var message in messages)
 		{ 
 			addMessage(messages[message]); 
